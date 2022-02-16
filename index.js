@@ -96,3 +96,50 @@ function moveForward() {
 function translateFigur(x, y) {
   figur.element.style.transform = "translate(" + x + "px ," + y + "px)";
 }
+
+// window.addEventListener("keydown", checkKeyPress, false);
+
+// function checkKeyPress(key) {
+//   if (key.keyCode === "38") {
+//     alert("key a wurde gedrückt");
+//   }
+// }
+
+//
+document.onkeydown = function (e) {
+  if (e.keyCode === 38) {
+    //UP-taste gedrückt
+    KEY_UP = true;
+    console.log("key UP gedrückt");
+    moveForward();
+  }
+
+  if (e.keyCode === 37) {
+    //DOWN taste links
+    KEY_LEFT = true;
+    console.log("key links gedrückt");
+    rotation("L");
+  }
+  if (e.keyCode === 39) {
+    //DOWN taste rechts
+    KEY_RIGHT = true;
+    console.log("key rechts gedrückt");
+    rotation("R");
+  }
+};
+
+document.onkeyup = function (e) {
+  if (e.keyCode === 38) {
+    //UP-taste losgelassen
+    KEY_UP = false;
+  }
+
+  if (e.keyCode === 37) {
+    //left taste losgelassen
+    KEY_LEFT = false;
+  }
+  if (e.keyCode === 39) {
+    //right taste losgelassen
+    KEY_RIGHT = false;
+  }
+};
