@@ -10,6 +10,8 @@ const figur = {
 figur.element.style.width = "24px";
 figur.element.style.height = "24px";
 figur.element.style.backgroundColor = "black";
+figur.element.style.transitionProperty = "all";
+figur.element.style.transitionDuration = "200ms";
 
 // Sorgt dafür, dass alle Positionsänderungen mit dem nächsten Frame abgebildet werden
 function update() {
@@ -58,6 +60,8 @@ function rotation(richtung) {
   }
 }
 
+// Die Figur wird, abhängig davon in welche Richtung sie schaut,
+// einen Schritt nach vorne machen.
 function moveForward() {
   if (figur.ausrichtung === "N") {
     figur.y -= 24;
@@ -70,6 +74,7 @@ function moveForward() {
   }
 }
 
+// Die Bewegung unserer Figur erfolgt über CSS transform translate
 function translateFigur(x, y) {
   figur.element.style.transform = "translate(" + x + "px ," + y + "px)";
 }
