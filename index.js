@@ -57,7 +57,7 @@ function animateSequence(sequence) {
   }, 650);
 }
 // Die Textsequenz, welche die Bewegungsreihenfolge der Figur bestimmt
-const inputString = "GGGRGGG";
+const inputString = "GGGLGRG";
 // Wir geben den Startschuss!
 animateSequence(inputString);
 
