@@ -10,25 +10,35 @@ const figur = {
 figur.element.style.width = "24px";
 figur.element.style.height = "24px";
 figur.element.style.backgroundColor = "black";
-moveForward();
-moveForward();
-moveForward();
-moveForward();
-moveForward();
-moveForward();
-console.log(figur);
-rotation("L");
-console.log(figur);
-rotation("R");
-console.log(figur);
-rotation("R");
-rotation("R");
-console.log(figur);
 
-translateFigur(figur.x, figur.y);
+// Sorgt dafür, dass alle Positionsänderungen mit dem nächsten Frame abgebildet werden
+function update() {
+  translateFigur(figur.x, figur.y);
+  window.requestAnimationFrame(update);
+}
+update();
 
-const inputString = "GGGRGLGGRLGRLLGGRGR";
+const inputString = "GGGRGLGGRGGRGGLGLGGRGR";
 spielfeld.append(figur.element);
+
+// Animation der Inputsequenz
+function animateSequence(sequence) {
+  const sequenceAsArray = sequence.split("");
+  let index = 0;
+  // Jede 650 ms wird der nächste Schritt ausgeführt
+  setInterval(() => {
+    // Solange wir noch nicht durch das Array durch sind
+    if (index < sequenceAsArray.length) {
+      if (sequenceAsArray[index] === "R" || sequenceAsArray[index] === "L") {
+        rotation(sequenceAsArray[index]);
+      } else if (sequenceAsArray[index] === "G") {
+        moveForward();
+      }
+      index++;
+    }
+  }, 650);
+}
+animateSequence(inputString);
 
 function rotation(richtung) {
   const richtungsIndex = richtungsMoeglichkeiten.indexOf(figur.ausrichtung);
