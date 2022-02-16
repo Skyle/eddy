@@ -17,6 +17,8 @@ figur.element.style.height = "24px";
 figur.element.style.backgroundColor = "black";
 figur.element.style.transitionProperty = "all";
 figur.element.style.transitionDuration = "200ms";
+figur.element.style.transitionTimingFunction = "ease-in-out";
+
 // Die Figur wird dem Spielfeld hinzugefügt
 spielfeld.append(figur.element);
 
@@ -55,7 +57,7 @@ function animateSequence(sequence) {
   }, 650);
 }
 // Die Textsequenz, welche die Bewegungsreihenfolge der Figur bestimmt
-const inputString = "GGGRGGG";
+const inputString = "GGGLGRG";
 // Wir geben den Startschuss!
 animateSequence(inputString);
 
