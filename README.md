@@ -1,6 +1,6 @@
 # eddy
 - Animation
-- Tastatureingabe
+- ~~Tastatureingabe~~
 - Input Element
 - CSS Animation der Bewegung
 - Bild für die Figur
