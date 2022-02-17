@@ -174,7 +174,10 @@ const inputMoveRobot = document.querySelector(".command-line");
 inputMoveRobot.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         if (inputMoveRobot.value === regex) {
+            // reassign the inputstring with the value
             inputString = inputMoveRobot.value;
+            //reactivate the sequence
+            animateSequence(inputString);
         } else {
             alert("Falsche Eingabe Buddy!");
         }
