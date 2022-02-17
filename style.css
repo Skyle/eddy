@@ -1,24 +1,32 @@
 body {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
+
+body {
+  background-color: black;
+}
+
 #spielfeld {
-    width: 100vw;
-    height: 82vh;
-    background-color: goldenrod;
+  /* width: 100vw;
+  height: 82vh; */
+  margin-inline: auto;
+  width: 960px;
+  height: 680px;
+  background-color: goldenrod;
 }
 
 .header {
-    background-color: black;
-    height: 18vh;
-    width: 100vw;
-    color: #fff;
-    padding: 0.5rem 0 0.8rem 1.5rem;
-    line-height: 1.5;
+  background-color: black;
+  height: 18vh;
+  width: 100vw;
+  color: #fff;
+  padding: 0.5rem 0 0.8rem 1.5rem;
+  line-height: 1.5;
 }
 
 .command-line {
-    padding: 0.3rem;
-    margin: 0.5rem 0 0.5rem 1rem;
-    width: 15vw;
+  padding: 0.3rem;
+  margin: 0.5rem 0 0.5rem 1rem;
+  width: 15vw;
 }

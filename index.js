@@ -3,14 +3,24 @@ const spielfeld = document.getElementById("spielfeld");
 // Alle möglichen Richtungen, in die die Spielfigur schauen kann
 const richtungsMoeglichkeiten = ["N", "O", "S", "W"];
 // Spielfigur, die sich im Browserfenster bewegt
+
+console.log(document.getElementById("spielfeld").offsetWidth);
+console.log(document.getElementById("spielfeld").offsetHeight);
+console.log(document.body.offsetWidth);
+console.log(document.body.offsetHeight);
 const figur = {
-  element: document.createElement("div"),
+  element: document.createElement("spieldfeld"),
+
   // Die Figur bekommt Koordination, die den Pixeln des Fensters entsprechen
-  x: window.innerWidth / 2 - 12,
-  y: window.innerHeight / 2 - 12,
+  x: document.getElementById("spielfeld").offsetWidth / 2,
+
+  y: document.getElementById("spielfeld").offsetHeight / 2,
+
   // Der Startwert der Figurausrichtung ist "N"
   ausrichtung: richtungsMoeglichkeiten[0],
 };
+// alert(document.getElementById("spielfeld").offsetWidth);
+console.log(figur.x, "", figur.y);
 // Das rudimentäre Design der Figur
 figur.element.style.width = "24px";
 figur.element.style.height = "24px";
