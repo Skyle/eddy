@@ -1,8 +1,15 @@
 body {
-  margin: 0px;
+    margin: 0px;
 }
 #spielfeld {
-  width: 100vw;
-  height: 100vh;
-  background-color: goldenrod;
+    width: 100vw;
+    height: 90vh;
+    background-color: goldenrod;
+}
+
+.header {
+    background-color: black;
+    height: 10vh;
+    width: 100vw;
+    color: #fff;
 }
