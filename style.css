@@ -1,15 +1,24 @@
 body {
     margin: 0px;
+    padding: 0px;
 }
 #spielfeld {
     width: 100vw;
-    height: 90vh;
+    height: 78.5vh;
     background-color: goldenrod;
 }
 
 .header {
     background-color: black;
-    height: 10vh;
+    height: 18vh;
     width: 100vw;
     color: #fff;
+    padding: 0.5rem 0 0.8rem 1.5rem;
+    line-height: 1.5;
+}
+
+.command-line {
+    padding: 0.3rem;
+    margin: 0.5rem 0 0.5rem 1rem;
+    width: 15vw;
 }
