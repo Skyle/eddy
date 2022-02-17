@@ -1,5 +1,5 @@
 # eddy
-Eddy, die Roboterbiene, auf der Suche nach dem Ziel. Gesteuert durch einen Zeilenabfolge.
+Eddy, die Roboterbiene, auf der Suche nach dem Ziel. Gesteuert durch einen Zeichenabfolge.
 
 - ~~Animation~~
 - ~~Tastatureingabe~~
