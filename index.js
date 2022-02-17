@@ -56,6 +56,7 @@ function animateSequence(sequence) {
         // Wird alle 650ms aufgerufen
     }, 650);
 }
+
 // Die Textsequenz, welche die Bewegungsreihenfolge der Figur bestimmt
 const inputString = "GGGLGRG";
 // Wir geben den Startschuss!
@@ -162,3 +163,15 @@ let commandLine = `<p> Willkommen bei "Eddy's Robot Walk"! Du kannst Eddy über 
                   </p>
                   `;
 header.innerHTML = commandLine;
+
+//definition des regex
+const regex = /^[GLR]*$/;
+
+//das input, dass den roboter bewegen soll
+const inputMoveRobot = document.querySelector(".command-line");
+
+if (inputMoveRobot.value.match(regex)) {
+    inputString = inputMoveRobot.value;
+} else {
+    alert("Falsche Eingabe Buddy!");
+}
