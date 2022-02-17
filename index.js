@@ -169,6 +169,7 @@ const regex = /^[GLR]*$/;
 
 //das input, dass den roboter bewegen soll
 const inputMoveRobot = document.querySelector(".command-line");
+inputMoveRobot.value = inputString;
 
 //added the event for listening on enter and if regex matches the input.value
 inputMoveRobot.addEventListener("keypress", (e) => {
