@@ -58,7 +58,7 @@ function animateSequence(sequence) {
 }
 
 // Die Textsequenz, welche die Bewegungsreihenfolge der Figur bestimmt
-const inputString = "GGGLGRG";
+let inputString = "GGGLGRG";
 // Wir geben den Startschuss!
 animateSequence(inputString);
 
@@ -173,7 +173,8 @@ const inputMoveRobot = document.querySelector(".command-line");
 //added the event for listening on enter and if regex matches the input.value
 inputMoveRobot.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-        if (inputMoveRobot.value.exec(regex)) {
+        console.log(inputMoveRobot.value);
+        if (inputMoveRobot.value.match(regex)) {
             // reassign the inputstring with the value
             inputString = inputMoveRobot.value;
             //reactivate the sequence
