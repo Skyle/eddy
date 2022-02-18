@@ -4,23 +4,23 @@ const spielfeld = document.getElementById("spielfeld");
 const richtungsMoeglichkeiten = ["N", "O", "S", "W"];
 // Spielfigur, die sich im Browserfenster bewegt
 
-console.log(document.getElementById("spielfeld").offsetWidth);
-console.log(document.getElementById("spielfeld").offsetHeight);
-console.log(document.body.offsetWidth);
-console.log(document.body.offsetHeight);
 const figur = {
-  element: document.createElement("spieldfeld"),
+  element: document.createElement("div"),
 
   // Die Figur bekommt Koordination, die den Pixeln des Fensters entsprechen
-  x: document.getElementById("spielfeld").offsetWidth / 2,
 
-  y: document.getElementById("spielfeld").offsetHeight / 2,
-
+  x: window.innerWidth / 2 - 12,
+  y: window.innerHeight / 2 - 12,
   // Der Startwert der Figurausrichtung ist "N"
   ausrichtung: richtungsMoeglichkeiten[0],
+  getPositionX: function () {
+    return this.x;
+  },
+  getPositionY: function () {
+    return this.y;
+  },
 };
-// alert(document.getElementById("spielfeld").offsetWidth);
-console.log(figur.x, "", figur.y);
+
 // Das rudimentäre Design der Figur
 figur.element.style.width = "24px";
 figur.element.style.height = "24px";
@@ -94,14 +94,34 @@ function rotation(richtung) {
 // Die Figur wird, abhängig davon in welche Richtung sie schaut,
 // einen Schritt nach vorne machen.
 function moveForward() {
-  if (figur.ausrichtung === "N") {
+  if (figur.ausrichtung === "N" && figur.getPositionY() > 14) {
     figur.y -= 24;
-  } else if (figur.ausrichtung === "S") {
+    console.log("y Position", figur.getPositionY());
+    if (figur.getPositionY() < 14) {
+      console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+    }
+  } else if (
+    figur.ausrichtung === "S" &&
+    figur.getPositionY() < window.innerHeight
+  ) {
     figur.y += 24;
-  } else if (figur.ausrichtung === "W") {
+    console.log("x Position", figur.getPositionX());
+    if (figur.getPositionX() > window.innerHeight) {
+      console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+    }
+  } else if (figur.ausrichtung === "W" && figur.getPositionX() > 16) {
     figur.x -= 24;
-  } else if (figur.ausrichtung === "O") {
+    if (figur.getPositionX() < 20) {
+      console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+    }
+  } else if (
+    figur.ausrichtung === "O" &&
+    figur.getPositionX() < window.innerWidth - 40
+  ) {
     figur.x += 24;
+    if (figur.getPositionX() > window.innerWidth - 40) {
+      console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+    }
   }
 }
 
@@ -124,22 +144,21 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-//erstelle input im header der seite
-const header = document.querySelector("header");
+//erstelle input im p-Tag der seite
+const p = document.querySelector("p");
 
 // füge vordefinierte class aus style.css hinzu
-header.classList.add("header");
+p.classList.add("p");
 
 //hole zusätzliches div aus dem html für das hinzufügen des inputs ud textes im header
-const headerInput = document.querySelector("#header_input");
-let commandLine = `<p> Willkommen bei "Eddy's Robot Walk"! Du kannst Eddy über die Texteingabe und die Pfeiltasten bewegen! <br>
+const pInput = document.querySelector("#p_input");
+let commandLine = ` Willkommen bei "Eddy's Robot Walk"! Du kannst Eddy über die Texteingabe und die Pfeiltasten bewegen! <br>
                       Texteingabe: <input type="text" placeholder="zB: GLRGGLG" class="command-line"> <br>
                       G => ein Schritt geradeaus <br>
                       R => Eddy dreht sich nach rechts <br>
                       L => Eddy dreht sich nach links <br>
-                  </p>
                   `;
-header.innerHTML = commandLine;
+p.innerHTML = commandLine;
 
 //definition des regex
 const regex = /^[GLR]*$/;

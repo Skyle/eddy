@@ -1,26 +1,30 @@
-body {
-  margin: 0px;
-  padding: 0px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: black;
+  position: relative;
+  background-color: rgb(206, 158, 38);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
 }
 
 #spielfeld {
-  /* width: 100vw;
-  height: 82vh; */
-  margin-inline: auto;
-  width: 960px;
-  height: 680px;
-  background-color: goldenrod;
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(206, 158, 38);
 }
 
-.header {
-  background-color: black;
-  height: 18vh;
-  width: 100vw;
-  color: #fff;
+.p {
+  position: absolute;
+  background-color: rgb(206, 158, 38, 0.8);
+  z-index: -1;
+  color: #333;
   padding: 0.5rem 0 0.8rem 1.5rem;
   line-height: 1.5;
 }
