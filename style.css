@@ -1,24 +1,65 @@
-body {
-    margin: 0px;
-    padding: 0px;
-}
-#spielfeld {
-    width: 100vw;
-    height: 82vh;
-    background-color: goldenrod;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-    background-color: black;
-    height: 18vh;
-    width: 100vw;
-    color: #fff;
-    padding: 0.5rem 0 0.8rem 1.5rem;
-    line-height: 1.5;
+body {
+  position: relative;
+  background-color: rgb(206, 158, 38);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+#spielfeld {
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(206, 158, 38);
+}
+
+.p {
+  position: absolute;
+  background-color: rgb(206, 158, 38, 0.8);
+  z-index: -1;
+  color: #333;
+  padding: 0.5rem 0 0.8rem 1.5rem;
+  line-height: 1.5;
 }
 
 .command-line {
-    padding: 0.3rem;
-    margin: 0.5rem 0 0.5rem 1rem;
-    width: 15vw;
+  padding: 0.3rem;
+  margin: 0.5rem 0 0.5rem 1rem;
+  width: 15vw;
+}
+
+.wiggle {
+  animation: wiggle 150ms infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(4px, 0) rotate(-2deg);
+  }
+
+  40% {
+    transform: translate(-8px, 0) rotate(5deg);
+  }
+
+  60% {
+    transform: translate(8px, 0) rotate(-5deg);
+  }
+
+  80% {
+    transform: translate(-4px, 0) rotate(2deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
