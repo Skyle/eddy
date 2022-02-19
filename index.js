@@ -91,36 +91,62 @@ function rotation(richtung) {
   }
 }
 
+// die runWiggle() Funktion führt die Wiggle Funktion aus .
+// Der wiggle-Effekt beinhaltet die Startfunktion und die Endfunktion
+// die set Timeout Funktion legt fest wann die End Funktion initialisiert werden soll.
+function runWiggle() {
+  startWiggle();
+  setTimeout(() => {
+    endWiggle();
+  }, 300);
+}
+
+// startWiggle() startet die Wiggle-Funktion
+
+function startWiggle() {
+  spielfeld.classList.add("wiggle");
+}
+
+//// endWiggle() startet die Wiggle-Funktion
+function endWiggle() {
+  spielfeld.classList.remove("wiggle");
+}
+
 // Die Figur wird, abhängig davon in welche Richtung sie schaut,
 // einen Schritt nach vorne machen.
+
 function moveForward() {
-  if (figur.ausrichtung === "N" && figur.getPositionY() > 14) {
+  if (figur.ausrichtung === "N" && figur.getPositionY() > 0) {
     figur.y -= 24;
-    console.log("y Position", figur.getPositionY());
-    if (figur.getPositionY() < 14) {
+
+    if (figur.getPositionY() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+      runWiggle();
     }
   } else if (
     figur.ausrichtung === "S" &&
     figur.getPositionY() < window.innerHeight
   ) {
     figur.y += 24;
-    console.log("x Position", figur.getPositionX());
-    if (figur.getPositionX() > window.innerHeight) {
+
+    if (figur.getPositionY() > window.innerHeight) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+      runWiggle();
     }
-  } else if (figur.ausrichtung === "W" && figur.getPositionX() > 16) {
+  } else if (figur.ausrichtung === "W" && figur.getPositionX() > 0) {
     figur.x -= 24;
-    if (figur.getPositionX() < 20) {
+    if (figur.getPositionX() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+      runWiggle();
     }
   } else if (
     figur.ausrichtung === "O" &&
-    figur.getPositionX() < window.innerWidth - 40
+    figur.getPositionX() < window.innerWidth
   ) {
     figur.x += 24;
-    if (figur.getPositionX() > window.innerWidth - 40) {
+    if (figur.getPositionX() > window.innerWidth) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
+      runWiggle();
     }
   }
 }

@@ -34,3 +34,32 @@ body {
   margin: 0.5rem 0 0.5rem 1rem;
   width: 15vw;
 }
+
+.wiggle {
+  animation: wiggle 150ms infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(4px, 0) rotate(-2deg);
+  }
+
+  40% {
+    transform: translate(-8px, 0) rotate(5deg);
+  }
+
+  60% {
+    transform: translate(8px, 0) rotate(-5deg);
+  }
+
+  80% {
+    transform: translate(-4px, 0) rotate(2deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
