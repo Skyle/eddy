@@ -13,9 +13,12 @@ const figur = {
   y: window.innerHeight / 2 - 12,
   // Der Startwert der Figurausrichtung ist "N"
   ausrichtung: richtungsMoeglichkeiten[0],
+
+  //HilfsFunktion gibt die X-Position zurück
   getPositionX: function () {
     return this.x;
   },
+  //HilfsFunktion gibt die Y-Position zurück
   getPositionY: function () {
     return this.y;
   },
@@ -28,6 +31,8 @@ figur.element.style.backgroundColor = "black";
 figur.element.style.transitionProperty = "all";
 figur.element.style.transitionDuration = "200ms";
 figur.element.style.transitionTimingFunction = "ease-in-out";
+figur.element.style.zIndex = "10";
+// figur.element.style.position = "absolute";
 
 // Die Figur wird dem Spielfeld hinzugefügt
 spielfeld.append(figur.element);
@@ -107,7 +112,7 @@ function startWiggle() {
   spielfeld.classList.add("wiggle");
 }
 
-//// endWiggle() startet die Wiggle-Funktion
+// endWiggle() startet die Wiggle-Funktion
 function endWiggle() {
   spielfeld.classList.remove("wiggle");
 }
@@ -122,6 +127,7 @@ function moveForward() {
     if (figur.getPositionY() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
+      figur.y = 2;
     }
   } else if (
     figur.ausrichtung === "S" &&
@@ -129,24 +135,29 @@ function moveForward() {
   ) {
     figur.y += 24;
 
-    if (figur.getPositionY() > window.innerHeight) {
+    if (figur.getPositionY() > window.innerHeight - 12) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
+      figur.y = window.innerHeight - 26;
     }
   } else if (figur.ausrichtung === "W" && figur.getPositionX() > 0) {
     figur.x -= 24;
     if (figur.getPositionX() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
+      figur.x = 2;
     }
   } else if (
     figur.ausrichtung === "O" &&
     figur.getPositionX() < window.innerWidth
   ) {
     figur.x += 24;
-    if (figur.getPositionX() > window.innerWidth) {
+    if (figur.getPositionX() > window.innerWidth - 12) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
+      console.log(figur.getPositionY());
+      console.log(figur.getPositionX());
+      figur.x = window.innerWidth - 26;
     }
   }
 }
