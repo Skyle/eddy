@@ -127,7 +127,7 @@ function moveForward() {
     if (figur.getPositionY() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
-      figur.y = 2;
+      figur.y = 0;
     }
   } else if (
     figur.ausrichtung === "S" &&
@@ -138,14 +138,14 @@ function moveForward() {
     if (figur.getPositionY() > window.innerHeight - 12) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
-      figur.y = window.innerHeight - 26;
+      figur.y = window.innerHeight - 24;
     }
   } else if (figur.ausrichtung === "W" && figur.getPositionX() > 0) {
     figur.x -= 24;
     if (figur.getPositionX() < 0) {
       console.log("Danger!!! Du bist an die Grnezen deiner Welt gestoßen!!!");
       runWiggle();
-      figur.x = 2;
+      figur.x = 0;
     }
   } else if (
     figur.ausrichtung === "O" &&
@@ -157,7 +157,7 @@ function moveForward() {
       runWiggle();
       console.log(figur.getPositionY());
       console.log(figur.getPositionX());
-      figur.x = window.innerWidth - 26;
+      figur.x = window.innerWidth - 24;
     }
   }
 }
