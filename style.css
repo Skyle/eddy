@@ -10,6 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 1;
+  overflow: hidden;
 }
 
 #spielfeld {
@@ -28,6 +29,7 @@ body {
   color: #333;
   padding: 0.5rem 0 0.8rem 1.5rem;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .command-line {
