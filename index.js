@@ -213,6 +213,7 @@ input.addEventListener("focusin", (e) => {
   help.innerHTML =
     "G => ein Schritt geradeaus <br> R => Eddy dreht sich nach rechts <br> L => Eddy dreht sich nach links <br>";
   p.appendChild(help);
+  gsap.from(".help", { duration: 1, y: "100%", ease: "bounce" });
 });
 
 input.addEventListener("focusout", (e) => {
