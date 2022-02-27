@@ -181,33 +181,76 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-//erstelle input im p-Tag der seite
+//selektiert das P-Tag aus dem DOM und speichtert es in der Variable p
 const p = document.querySelector("p");
 
-// füge vordefinierte class aus style.css hinzu
+// füge vordefinierte class aus style.css hinzu der Variablen p hinzu
 p.classList.add("p");
 
-//hole zusätzliches div aus dem html für das hinzufügen des inputs ud textes im header
-const pInput = document.querySelector("#p_input");
-let commandLine = ` Willkommen bei "Eddy's Robot Walk"! Du kannst Eddy über die Texteingabe und die Pfeiltasten bewegen! <br>
-                      Texteingabe: <input type="text" placeholder="zB: GLRGGLG" class="command-line"> <br>
-                      G => ein Schritt geradeaus <br>
-                      R => Eddy dreht sich nach rechts <br>
-                      L => Eddy dreht sich nach links <br>
-                  `;
-p.innerHTML = commandLine;
+// fügt der Variablen p einen Text-Content hinzu
 
-//definition des regex
+p.textContent =
+  "Willkommen bei 'Eddy:s Robot Walk'! Du kannst Eddy über die Texteingabe und die Pfeiltasten bewegen!";
+
+// erstellt ein input-Tag und speichert es in der Variablen input
+const input = document.createElement("input");
+// füge vordefinierte class aus style.css hinzu der Variablen p hinzu
+input.classList.add("command-line");
+//fügt dem input-Element die Eigenschaft text hinzu
+input.type = "text";
+//fügt dem input-Element die Eigenschaft placeholder hinzu
+input.placeholder = "z.B GLRGGLG";
+//fügt dem input-Element die Eigenschaft lable hinzu
+input.labels = "Texteingabe";
+//fügt das input als Kind von dem Tag-p im DOM an
+p.appendChild(input);
+
+// erstellt einen Tag p und fügt es der variablen help hinzu
+const help = document.createElement("p");
+help.classList.add("help");
+
+input.addEventListener("focusin", (e) => {
+  help.innerHTML =
+    "G => ein Schritt geradeaus <br> R => Eddy dreht sich nach rechts <br> L => Eddy dreht sich nach links <br>";
+  p.appendChild(help);
+});
+
+input.addEventListener("focusout", (e) => {
+  const p = e.target.parentElement;
+  help.textContent = "";
+});
+
+// let showHelpText =
+//   "G => ein Schritt geradeaus <br> R => Eddy dreht sich nach rechts <br> L => Eddy dreht sich nach links <br>";
+
+// const help = document.forms["input"];
+
+// help.addEventListener("click", (e) => {
+//   // e.preventDefault();
+//   console.log("ficker");
+//   // e.innerHTML += showHelpText;
+// });
+
+// showText();
+// input.addEventListener("mouseout", (e) => {
+//   if (e) {
+//     e.preventDefault();
+//     p.innerHTML += commandLine;
+//     console.log("Fick Dich");
+//   }
+// });
+
 const regex = /^[GLR]*$/;
 
 //das input, dass den roboter bewegen soll
-const inputMoveRobot = document.querySelector(".command-line");
+const inputMoveRobot = document.querySelector("input");
 inputMoveRobot.value = inputString;
 
 //added the event for listening on enter and if regex matches the input.value
 inputMoveRobot.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     console.log(inputMoveRobot.value);
+
     if (inputMoveRobot.value.match(regex)) {
       // reassign the inputstring with the value
       inputString = inputMoveRobot.value;

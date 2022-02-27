@@ -26,16 +26,26 @@ body {
   position: absolute;
   background-color: rgb(206, 158, 38, 0.8);
   z-index: -1;
-  color: #333;
+  color: rgba(41, 40, 37, 0.8);
   padding: 0.5rem 0 0.8rem 1.5rem;
   line-height: 1.5;
+
   overflow: hidden;
+}
+
+.help {
+  padding: 0.3rem;
+  margin: 0.5rem 0 0.5rem 1rem;
+  width: 15vw;
+  display: block;
+  color: rgba(41, 40, 37, 0.8);
 }
 
 .command-line {
   padding: 0.3rem;
   margin: 0.5rem 0 0.5rem 1rem;
   width: 15vw;
+  display: block;
 }
 
 .wiggle {
